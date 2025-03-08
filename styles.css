@@ -7,6 +7,7 @@
     --toggle-bg: #e8eaed;
     --toggle-circle: #fff;
     --toggle-shadow: rgba(0, 0, 0, 0.1);
+    --divider-color: rgba(102, 102, 102, 0.5);
 }
 
 .dark-mode {
@@ -18,6 +19,7 @@
     --toggle-bg: #555;
     --toggle-circle: #161616;
     --toggle-shadow: rgba(255, 255, 255, 0.1);
+    --divider-color: rgba(208, 208, 208, 0.5);
 }
 
 * {
@@ -51,18 +53,35 @@ body {
 h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-h2 {
-    font-size: 1.8rem;
+.subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
     font-weight: 400;
     color: var(--secondary-text);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+}
+
+.role, .specialty {
+    padding: 0 1rem;
+    text-transform: uppercase;
+}
+
+.divider {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--divider-color);
+    margin: 0 0.5rem;
 }
 
 /* Theme Toggle */
@@ -125,8 +144,8 @@ h2 {
         font-size: 2.8rem;
     }
     
-    h2 {
-        font-size: 1.4rem;
+    .subtitle {
+        font-size: 1rem;
     }
     
     .theme-toggle {
