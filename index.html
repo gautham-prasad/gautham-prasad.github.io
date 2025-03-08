@@ -11,11 +11,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="toggle-label">
+            <span class="toggle-icon"></span>
+        </label>
+    </div>
+    
     <div class="container">
         <div class="content">
             <h1>Gautham Prasad</h1>
             <h2>Software Engineer | Web Developer</h2>
         </div>
     </div>
+    
+    <script>
+        const themeSwitch = document.getElementById('theme-switch');
+        
+        // Check for saved user preference, if any
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeSwitch.checked = true;
+        }
+        
+        // Listen for toggle changes
+        themeSwitch.addEventListener('change', function() {
+            if(this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html> 
