@@ -46,8 +46,13 @@
     <script>
         const themeSwitch = document.getElementById('theme-switch');
         
-        // Check for saved user preference, if any
-        if (localStorage.getItem('theme') === 'dark') {
+        // Check for saved user preference, if any, or default to dark mode
+        if (localStorage.getItem('theme') === null) {
+            // Set dark mode as default
+            document.body.classList.add('dark-mode');
+            themeSwitch.checked = true;
+            localStorage.setItem('theme', 'dark');
+        } else if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             themeSwitch.checked = true;
         }
